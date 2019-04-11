@@ -1,5 +1,6 @@
 'use strict';
-
+const smartGrid = require('smart-grid');
+const gulp = require('gulp');
 global.$ = {
   package: require('./package.json'),
   config: require('./gulp/config'),
@@ -11,7 +12,7 @@ global.$ = {
   },
   gulp: require('gulp'),
   rimraf: require('rimraf'),
-
+  //smartGrid : require('smart-grid'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')()
 };
@@ -20,8 +21,11 @@ $.path.task.forEach(function(taskPath) {
   require(taskPath)();
 });
 
-$.gulp.task('default', $.gulp.series(
+gulp.task('smartgrid', smartGrid('source/style/common', $.config.smartset));
+
+$.gulp.task('dev', $.gulp.series(
   'clean',
+
   $.gulp.parallel(
     'sass',
     'pug',
@@ -29,7 +33,8 @@ $.gulp.task('default', $.gulp.series(
     'js:process',
     'copy:image',
     'css:foundation',
-    'sprite:svg'
+    'sprite:svg',
+    'fonts',
   ),
   $.gulp.parallel(
     'watch',

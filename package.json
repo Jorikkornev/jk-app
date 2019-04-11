@@ -24,7 +24,9 @@
     "gulp-sourcemaps": "2.6.5",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-svgmin": "^2.1.0",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "smart-grid": "^2.1.2",
+    "tiny-slider": "^2.9.1"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"

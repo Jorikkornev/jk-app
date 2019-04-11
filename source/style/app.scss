@@ -1,5 +1,11 @@
-body {
-  margin: 0;
+@import 'common/smart-grid';
+@import "common/icon-font-style";
+/*base style*/
+html {
+  box-sizing: border-box;
 }
-
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 @import 'common/greating';
+

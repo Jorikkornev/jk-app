@@ -1,0 +1,88 @@
+footer#address
+    .top-line-wrapper
+        .wrapper
+            .tab-header
+                .tab-header__item.btn.js-tab-trigger.active(data-tab="1")
+                    span.links__icon
+                        i.fa.fa-barrel
+                        |Оптовая база
+                .tab-header__item.btn.js-tab-trigger(data-tab="2")
+                    span.links__icon
+                        i.fa.fa-gasoline
+                        |Магазин
+    .body-line-wrapper
+        .wrapper
+            .tab-content
+                .tab-content__item.js-tab-content.active(data-tab="1")
+                    .contact
+                        address
+                            .vcard
+                                //img(src="./images/logo.png" alt=" ").photo
+                                .fn.org Аргентавто
+                                .adr
+                                    .street-address Узловая, 20
+                                    .locality Симферополь,
+                                    .region Республика Крым,
+                                    .postal-code 295047
+                                    .country-name Россия
+                                    .category
+                                        span(title="Магазин автозапчастей и автотоваров")
+                                    .category
+                                        span(title="Смазочные материалы")
+                                ul.contacts
+                                    li.contacts__tel
+                                        a(href="tel:+79787518892").links__icon.tel
+                                            i.fa.fa-call
+                                            | +797 875 188 92
+                                    li.contacts__email
+                                        a(href="mailto:argentavto@gmail.com").links__icon.email
+                                            i.fa.fa-email
+                                            | argentavto@gmail.com
+                                .url
+                                    .value-title(title="pemco-simferopol.ru")
+                                .geo
+                                    .latitude
+                                        .value-title(title="44.932676")
+                                    .longitude
+                                        .value-title(title="34.044137")
+                .tab-content__item.js-tab-content(data-tab="2")
+                    .contact
+                        address
+                            .vcard
+                                //img(src="./images/logo.png" alt=" ").photo
+                                .fn.org Motor Doctor
+                                .adr
+                                    .street-address Героев Сталинграда, 3-А
+                                    .locality Симферополь,
+                                    .region Республика Крым,
+                                    .postal-code 295047
+                                    .country-name Россия
+                                    .category
+                                        span(title="Магазин автозапчастей и автотоваров")
+                                    .category
+                                        span(title="Смазочные материалы")
+                                ul.contacts
+                                    li.contacts__tel
+                                        a(href="tel:+79787518892").links__icon.tel
+                                            i.fa.fa-call
+                                            | +797 875 188 92
+                                    li.contacts__email
+                                        a(href="mailto:argentavto@gmail.com").links__icon.email
+                                            i.fa.fa-email
+                                            | argentavto@gmail.com
+                                .url
+                                    .value-title(title="pemco-simferopol.ru")
+                                .geo
+                                    .latitude
+                                        .value-title(title="44.938942")
+                                    .longitude
+                                        .value-title(title="34.060864")
+            .map
+                .ymap-container
+                    .loader-btn.btn
+                        span.links__icon
+                            i.fa.fa-location
+                            | Показать на карте
+                    .loader.loader-default
+
+                    #map-yandex

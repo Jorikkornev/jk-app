@@ -1,6 +1,7 @@
 block variables
 
 doctype html
+html(lang="ru-RU")
 html
   head
     meta(charset="utf-8")
@@ -16,12 +17,25 @@ html
 
     link(rel='stylesheet' href='/assets/css/foundation.css')
     link(rel='stylesheet' href='/assets/css/app.css')
-    script(src='/assets/js/foundation.js' defer)
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css")
+    //script(src='/assets/js/foundation.js' defer)
+
+    //script(src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.js" defer)
+    script(src='/assets/js/tiny-slider.js')
     script(src='/assets/js/app.js' defer)
 
     <!--[if lt IE 9]>
-    script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/min/tiny-slider.helper.ie8.js")
     <![endif]-->
 
   body
-    block content
+    block header
+    main
+      block products
+      block about
+    block address
+    script(src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous")
+    script(src="/assets/js/tiny-slider.js")

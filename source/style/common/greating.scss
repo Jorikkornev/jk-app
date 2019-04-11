@@ -1,27 +1,422 @@
-.greating {
-  overflow: hidden;
-  position: relative;
-  padding: 150px 20px 50px;
-  background: #F44336;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+@import 'smart-grid.scss';
+@import "tabs";
+@import "map";
+@include reset();
 
-  &_text {
-    font: 45px 'Arial', sans-serif;
-    color: #fff;
-  }
+//Примеси
 
-  &_picture {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100px;
-    height: 114px;
-    background: url('/assets/img/viking.png') no-repeat center;
-    transform: translate3D(100%, 0, 0);
-    transition: transform 0.5s;
-  }
+@mixin link-icon($icon_color: #3d2217, $icon_size: 1.5rem){
+    color: $icon_color;
+    font-size: $icon_size;
+}
+@mixin white-icon($icon_size, $icon_color: #fff){
+  font-size: $icon_size;
+  color: $icon_color;
+}
+@mixin yellow-link(){
+  background:linear-gradient(to bottom, #fea500 0%, #fec700 50%, #fea600 100%);
+  cursor:pointer;
+  -webkit-appearance:none;
+  box-shadow:none;
+
+  font-weight:bold;
+  padding:.5rem 1rem;
+  display: block;
+  text-decoration: none;
+    i{
+      margin-right: 1rem;
+      font-weight: 700;
+    }
 }
 
-.greating_picture.m--show {
-  transform: translate3D(0, 0, 0);
+//Базовые классы и стили
+img {
+  height: auto;
+  width: 100%;
+  display: block;
+  max-width: 100%;
+}
+.header-body__icon{}
+
+//Links a
+.links__icon{
+  @include yellow-link();
+  @include link-icon();
+}
+h1,h2{
+  text-align: center;
+}
+p{
+  margin-bottom: .75rem;
+}
+p:last-child{
+  margin-bottom: 0;
+}
+.text-block{
+  //@include row-flex();
+
+}
+.text-block__header{
+  @include col();
+  @include size(12);
+  padding: 1.5rem 0;
+  background-color: #272727;
+  margin: 2rem 0;
+}
+.text-block__text{
+  text-align: justify;
+  /*column-count:2;
+  column-gap:2rem;*/
+  @include col();
+  @include size(6);
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+.text-block__picture{
+  @include col();
+  @include size(6);
+  align-self: center;
+  padding: 1.5rem 0;
+  background-color: rgba(41, 17, 4, .35);
+}
+//figcaption text
+figcaption{
+  text-align: justify;
+  padding: 0.5rem .75rem;
+  background-color: rgba(254, 165, 0, .75);
+}
+.br{
+  margin: 1rem 0;
+}
+.header{
+  //height: 50vh;
+  background: #291104;
+  background:
+  linear-gradient(to bottom, rgba(41,17,4,1) 20%, transparent 50%,rgba(41,17,4,1) 70%),
+  linear-gradient(90deg,rgba(0, 0, 0, 0) 50%,rgba(205,127,85, 0.8) 60%,rgba(0, 0, 0, 0) 60%),
+  linear-gradient(-180deg,rgba(0, 0, 0, 0) 50%,rgba(205,127,85, 0.8) 60%,rgba(0, 0, 0, 0) 60%);
+  background-size: contain, 4em 4em, 4em 4em;
+  background-color: #291104;
+}
+section,
+.top-line-wrapper,
+.body-line-wrapper{
+  @include wrapper();
+}
+.top-line-wrapper{
+  .wrapper{
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
+.logo {
+  @include col();
+  @include size(3);
+  //display: flex;
+}
+//Размер блока контактов для повторного использования
+.contacts-size{
+  @include col();
+  @include size(4);
+  //display: flex;
+  margin-left: auto;
+}
+.contacts {
+
+}
+
+.contacts__email{
+  margin-top: 0.95rem;
+}
+.body-line{
+
+}
+.header__bg-image{
+  @include col();
+  @include size(12);
+  background-image: url("../img/lada-xray.png");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: contain;
+  height: 600px;
+}
+// header-body-text start
+.header-body-text{
+  @include col();
+  @include size(4);
+
+}
+.square{
+  font-size:1.2rem;
+  color: white;
+  //text-align: center;
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-self: stretch;
+  border-width: .4rem;
+  border-style: solid;
+  border-image:
+          linear-gradient(to left,#fea700 0,transparent 25%,transparent 75%,#fea700 100%);
+  border-image-slice: 1;
+}
+.header-body-text:first-child{
+  @include shift-left(1);
+}
+.header-body-text:last-child{
+  @include shift-left(2);
+}
+//Иконка
+.icon{
+  text-align: center;
+}
+.header-body__icon{
+  @include white-icon(10rem);
+  padding: 2rem 0;
+}
+
+.h3{
+  color: #fea500;
+  text-transform: uppercase;
+  font-size:1.5rem;
+  text-align: center;
+  font-weight: 800;
+}
+//Контейнер кнопки
+.btn {
+  //padding:.5rem 0 .5rem 1rem;
+  margin-top: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+  @include link-icon();
+}
+// header-body-text end
+
+
+//Products start
+//Main
+main{
+  background: rgba(218,218,218, 1);
+  background:
+    linear-gradient(to bottom,#291104 3%,rgba(41,17,4,.25) 25%,rgba(218,218,218,.25) 35%,rgba(218,218,218,.5) 75%,#dadada 100%);
+    background-size: contain;
+}
+.heading .h3{
+  padding: 2rem 0;
+  font-size: 2rem;
+}
+//tab-header start
+.tab-header{
+  @include row-flex();
+  //@include col;
+  justify-content: center;
+}
+
+.tab-header__item{
+  @include col();
+  @include size-sm(3);
+  /*border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: transparent;*/
+  cursor: pointer;
+  border-style: solid;
+  //padding: 1rem 0 0;
+  border-image:
+          linear-gradient(to bottom,#291104 0,transparent 0%);
+  border-image-slice: 1;
+}
+#products{
+  .tab-header__item{
+    margin: 0;
+    opacity: .75;
+  }
+  .tab-header__item:first-child{
+    margin-left: 15px;
+  }
+  .tab-header__item:last-child{
+    margin-right: 15px;
+  }
+   .tab-header__item.active {
+    @include white-icon(5rem,#fea500);
+    padding: 1rem 0 0;
+    /*border-top-color: #fea500;*/
+    border-image:
+    linear-gradient(to bottom,#fea900 0,transparent 50%);
+    border-image-slice: 1;
+    opacity: 1;
+  }
+  .tab__icon{
+    @include white-icon(5rem,#291104);
+    //lighten(#291104,50%)
+    //padding: 1rem 0;
+  }
+  .active .tab__icon{
+    color: #fea700;
+    //font-weight: 600;
+  }
+}
+//tab-header end
+//tab-content
+.tab-content__header .h3{
+  color:#291104;
+}
+.tns-controls{
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  outline: none;
+}
+
+//Навигация слайдера
+.tns-controls button{
+  color: #291104;
+  background-color: #fea500;
+  font-size: 1.5rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1rem;
+  &:focus{
+    outline: none;
+  }
+  &:first-child{
+    border-right: 3px solid transparent;
+  }
+  &:last-child{
+    border-left: 3px solid transparent;
+  }
+  &:last-child:focus{
+    border-left-color: #291104;
+  }
+  &:first-child:focus{
+    border-right-color: #291104;
+  }
+  &:first-child:before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 1.5rem solid transparent;
+    border-right: 2rem solid #fea500;
+    border-bottom: 1.5rem solid transparent;
+    display: inline-flex;
+    align-items: center;
+    margin-left: -3rem;
+  }
+  &:last-child:after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 1.5rem solid transparent;
+    border-left: 2rem solid #fea500;
+    border-bottom: 1.5rem solid transparent;
+    display: inline-flex;
+    align-items: center;
+    margin-right: -3rem;
+  }
+}
+.tns-nav{
+  text-align: center;
+}
+.tns-nav button{
+  padding: .3rem .5rem;
+  margin: .3rem;
+  background-color: #fea500;
+  opacity: .5;
+  border-color: transparent;
+  outline: none;
+}
+.tns-nav button.tns-nav-active{
+  opacity: 1;
+  border-color:#291104;
+}
+.card{
+  background-color: white;
+}
+
+  .tab-content__body{
+    //transform: none !important;
+    //-webkit-font-smoothing: subpixel-antialiased;
+    //-webkit-transform: translateZ(0) scale(1.0, 1.0);
+    //font-smoothing: subpixel-antialiased;
+    //transform: translateZ(0) scale(1.0, 1.0);
+    //-webkit-filter: blur(0);
+    will-change: transform;
+  }
+  .heading,
+  .tab-header,
+  .tab-content{
+    @include col();
+    @include size(12);
+  }
+//About
+picture{
+  display: block;
+}
+
+//Footer start
+footer{
+  background-color: rgb(39,39,39);
+  padding-bottom: 3%;
+
+}
+
+.wrapper,.text-block{
+  @include row-flex();
+  justify-content: center;
+  align-items: center;
+}
+//Табы футера
+
+.tab-header__item{
+    text-align: center;
+}
+footer .tab-header__item{
+  opacity: .5;
+}
+footer .tab-header__item.active{
+  opacity: 1;
+}
+.tab-content, .map {
+    @include col();
+    @include size(7);
+    @include size-sm(12);
+}
+.tab-content{
+    @include size(5);
+    //@include shift();
+}
+//v-card
+.vcard{
+  font-size: 1.2rem;
+  color: #fff;
+  display: flex;
+  padding: 0 1.5rem;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.fn,.email,.adr,.tel{
+border: 3px solid #fec700;
+/* cursor: pointer; */
+-webkit-appearance: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+font-weight: 700;
+padding: .5rem 1rem;
+display: block;
+text-decoration: none;
+/* color: #3d2217; */
+font-size: 1.5rem;
+margin: 5px 0;
+}
+.fn{
+  margin-top: 0;
+}
+.email{
+  margin-bottom: 0;
+}
+//Карта
+.map{
+  height: 100%;
 }
